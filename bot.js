@@ -12,7 +12,7 @@ const client = new Discordie({
 const Config = {
   "bot": true,
   "prefix": '!',
-  "token": "DISCORD_BOT_TOKEN",
+  "token": "Mjc3MzA0MDAxODk5NTI4MTky.C3bzFQ.sE-2G44rQs3tM79cKRVktVJ1llQ",
 };
 
 // {

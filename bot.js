@@ -48,6 +48,17 @@ client.Dispatcher.on(Event.MESSAGE_CREATE, (c) => {
   }
 })
 
+client.Dispatcher.on(Event.VOICE_CHANNEL_LEAVE, (data) => {
+  client.Guilds.get(data.guildId).voiceChannels.forEach(function(vd) {
+    vd.members.forEach(function(b) {
+      if(!b.bot) {
+        return;
+      }
+    });
+    vd.leave();
+  });
+})
+
 client.Dispatcher.on(Event.GATEWAY_READY, () => {
   console.log('Bot Connected!');
   console.log(`Invite Link: https://discordapp.com/oauth2/authorize?&client_id=${client.User.id}&scope=bot&permissions=8`);

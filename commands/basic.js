@@ -36,10 +36,23 @@ echo = {
 voicejoin = {
   name: '',
   help: '',
-  usage: `!join`,
+  usage: `!voicejoin`,
   fn: function(msg, client, suffix) {
-    var voiceChannel = msg.member.getVoiceChannel();
-    voiceChannel.join();
+    var voiceChannel = msg.channel.getVoiceChannel();
+    suffix.join();
+  }
+}
+
+vjoin = {
+  name: 'voice channel join',
+  help: '',
+  usage: `!vjoin`,
+  fn: function(msg, client, suffix) {
+    msg.guild.voiceChannels.forEach(function(vc) {
+      if(vc.name == suffix) {
+        vc.join();
+      }
+    });
   }
 }
 
@@ -58,11 +71,23 @@ voicedis = {
   }
 }
 
+vchannel = {
+  name: '',
+  help: '',
+  usage: `!vchannel`,
+  fn: function(msg, client) {
+    var vChannel = msg.member.getVoiceChannel();
+    console.log(vChannel);
+  }
+}
+
+
 module.exports = {
   ping,
   scare,
   echo,
   voicejoin,
   voicedis,
-  voice
+  vchannel,
+  vjoin
 };
